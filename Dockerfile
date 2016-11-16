@@ -35,6 +35,11 @@ RUN cd /usr/local/ && curl -L -O http://dl.google.com/android/android-sdk_r24.4.
 RUN cd /usr/local && curl -L -O http://dl.google.com/android/ndk/android-ndk-r9b-linux-x86_64.tar.bz2 && tar xf android-ndk-r9b-linux-x86_64.tar.bz2 && \
     rm -rf /usr/local/android-ndk-r9b-linux-x86_64.tar.bz2
 
+# Install gradle
+RUN cd /usr/local &&\ 
+    wget https://services.gradle.org/distributions/gradle-2.10-all.zip && \
+    unzip gradle-2.10-all.zip
+
 # Environment variables
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV JAVA8_HOME /usr/lib/jvm/java-8-oracle
