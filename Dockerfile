@@ -38,7 +38,8 @@ RUN cd /usr/local && curl -L -O http://dl.google.com/android/ndk/android-ndk-r9b
 # Install gradle
 RUN cd /usr/local &&\ 
     wget https://services.gradle.org/distributions/gradle-2.10-all.zip && \
-    unzip gradle-2.10-all.zip
+    unzip gradle-2.10-all.zip && \
+    rm -rf /usr/local/gradle-2.10-all.zip
 
 # Environment variables
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
