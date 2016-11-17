@@ -3,10 +3,10 @@ MAINTAINER kmtHiro <m14.hk.noball@gmail.com>
 ENTRYPOINT ["/bin/sh","-c"]
 
 # Basic environment setup
-RUN apt-get update -y && apt-get upgrade -y && apt-get install git-core build-essential zip curl python-pip python-software-properties apt-file lib32z1 expect -y
+RUN apt-get update expect -y && apt-get upgrade expect -y && apt-get install git-core build-essential zip curl python-pip python-software-properties apt-file lib32z1 expect -y
 RUN apt-file update -y
 RUN apt-get install software-properties-common expect -y
-RUN apt-add-repository ppa:brightbox/ruby-ng -y && dpkg --add-architecture i386 && apt-get update -y && apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386 ruby2.3 ruby2.3-dev expect -y
+RUN apt-add-repository ppa:brightbox/ruby-ng -y && dpkg --add-architecture i386 && apt-get update expect -y && apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386 ruby2.3 ruby2.3-dev expect -y
 
 # Java setup
 RUN \
