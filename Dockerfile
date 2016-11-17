@@ -3,10 +3,10 @@ MAINTAINER kmtHiro <m14.hk.noball@gmail.com>
 ENTRYPOINT ["/bin/sh","-c"]
 
 # Basic environment setup
-RUN apt-get update expect -y && apt-get upgrade expect -y && apt-get install git-core build-essential zip curl python-pip python-software-properties apt-file lib32z1 expect -y
+RUN apt-get update -y && apt-get upgrade -y && apt-get install git-core build-essential zip curl python-pip python-software-properties apt-file lib32z1 expect -y
 RUN apt-file update -y
-RUN apt-get install software-properties-common expect -y
-RUN apt-add-repository ppa:brightbox/ruby-ng -y && dpkg --add-architecture i386 && apt-get update expect -y && apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386 ruby2.3 ruby2.3-dev expect -y
+RUN apt-get install software-properties-common -y
+RUN apt-add-repository ppa:brightbox/ruby-ng -y && dpkg --add-architecture i386 && apt-get update -y && apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386 ruby2.3 ruby2.3-dev -y
 
 # Java setup
 RUN \
@@ -19,8 +19,8 @@ RUN \
     RUN \
     echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
     add-apt-repository -y ppa:webupd8team/java && \
-    apt-get update expect -y && \
-    apt-get install expect -y oracle-java7-installer && \
+    apt-get update -y && \
+    apt-get install -y oracle-java7-installer && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/oracle-jdk7-installer
 
